@@ -92,7 +92,7 @@ int speed = 3; //speed of bullet
 int enemySpeed = 1;
 int enemySize = 18;
 int lives = 3;
-int poc = 0;
+int isReset = 0;
 int enemyBullets = 0;
 int level = 1;
 int enemyX = 95;
@@ -236,10 +236,10 @@ void playGame(){
   //End of GPT generated stars
 
   // if we are just starting the game
-  if(poc == 0){
+  if(isReset == 0){
     startTime = millis();
     randTime = random(400,1200);
-    poc = 1;
+    isReset = 1;
   }
   currTime = millis();
 
@@ -353,7 +353,7 @@ void playGame(){
 
   //Initialize and shoot enemy bullets 
   if((randTime + startTime) < currTime){
-    poc=0;
+    isReset=0;
     enemyBullets += 1;
     if(enemyBullets == 1){
       bx=95;
@@ -566,7 +566,7 @@ void resetVars(){
   enemySpeed = 1;
 
   lives = 3;
-  poc = 0;
+  isReset = 0;
   enemyBullets = 0;
   level = 1;
   enemyX = 95;
